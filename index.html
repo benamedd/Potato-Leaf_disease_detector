@@ -3,77 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Potato Leaf Disease Detection - AI-powered tool to identify potato leaf diseases.">
     <title>Potato Leaf Disease Detection</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts.js"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="container">
-                <a href="#" class="logo">LeafCare</a>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#cta">Get Started</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="hero">
-            <div class="hero-content">
-                <h1>AI-Powered Potato Leaf Disease Detection</h1>
-                <p>Identify potato leaf diseases quickly and accurately with our advanced AI tool.</p>
-                <a href="#cta" class="cta-button">Try It Now</a>
-            </div>
-        </div>
+        <h1>Potato Leaf Disease Detection</h1>
+        <p>Identify and diagnose potato leaf diseases with our advanced machine learning model.</p>
     </header>
-
+    
     <main>
-        <section id="about">
-            <div class="container">
-                <h2>About the Platform</h2>
-                <p>Our platform uses cutting-edge machine learning algorithms to analyze potato leaf images and identify various diseases. Designed for farmers and researchers, it provides instant results to help manage and prevent plant diseases.</p>
-            </div>
+        <section class="upload-section">
+            <h2>Upload Your Image</h2>
+            <input type="file" id="file-input" accept="image/*">
+            <button id="upload-button">Upload Image</button>
         </section>
-
-        <section id="features">
-            <div class="container">
-                <h2>Features</h2>
-                <div class="features-grid">
-                    <div class="feature">
-                        <h3>Accurate Detection</h3>
-                        <p>Our AI model is trained on thousands of images to ensure precise identification of diseases.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>User-Friendly Interface</h3>
-                        <p>Easy-to-use interface allows you to upload images and get results in seconds.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Instant Results</h3>
-                        <p>Receive immediate feedback and recommendations for disease management.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta">
-            <div class="container">
-                <h2>Start Using the Tool</h2>
-                <p>Ready to try our potato leaf disease detection tool? Click the button below to launch the application.</p>
-                <a href="https://huggingface.co/spaces/benamedd/potato_disease" target="_blank" class="cta-button">Launch Application</a>
-            </div>
+        
+        <section class="results-section">
+            <h2>Results</h2>
+            <img id="uploaded-image" src="" alt="Uploaded Image">
+            <p id="prediction-result">Your results will appear here.</p>
         </section>
     </main>
-
+    
     <footer>
-        <div class="container">
-            <p>&copy; 2024 LeafCare. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </div>
+        <p>Powered by <a href="https://huggingface.co/spaces/benamedd/potato_disease" target="_blank">Hugging Face Spaces</a></p>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
