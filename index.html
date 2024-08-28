@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potato Leaf Disease Detection</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Include the Gradio script for the <gradio-app> component -->
     <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.42.0/gradio.js"></script>
+    <style>
+        /* Optional: Add styles for the iframe if you choose to use it */
+        iframe {
+            border: none;
+            width: 100%;
+            height: 450px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +25,7 @@
     <main>
         <section class="upload-section">
             <h2>Upload Your Image</h2>
-            <!-- Use Gradio's embedded component -->
+            <!-- Using the <gradio-app> component -->
             <gradio-app src="https://benamedd-potato-disease.hf.space"></gradio-app>
         </section>
         
@@ -24,6 +33,17 @@
             <h2>Results</h2>
             <img id="uploaded-image" src="" alt="Uploaded Image">
             <p id="prediction-result">Your results will appear here.</p>
+        </section>
+        
+        <!-- Optional: Include an iframe for embedding -->
+        <section class="embed-section">
+            <h2>Embedded App</h2>
+            <iframe
+                src="https://benamedd-potato-disease.hf.space"
+                frameborder="0"
+                width="850"
+                height="450">
+            </iframe>
         </section>
     </main>
     
