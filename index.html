@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potato Leaf Disease Detection</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.42.0/gradio.js"></script>
 </head>
 <body>
     <header>
@@ -15,8 +16,8 @@
     <main>
         <section class="upload-section">
             <h2>Upload Your Image</h2>
-            <input type="file" id="file-input" accept="image/*">
-            <button id="upload-button">Upload Image</button>
+            <!-- Use Gradio's embedded component -->
+            <gradio-app src="https://benamedd-potato-disease.hf.space"></gradio-app>
         </section>
         
         <section class="results-section">
@@ -29,7 +30,5 @@
     <footer>
         <p>Powered by <a href="https://huggingface.co/spaces/benamedd/potato_disease" target="_blank">Hugging Face Spaces</a></p>
     </footer>
-    
-    <script src="script.js"></script>
 </body>
 </html>
