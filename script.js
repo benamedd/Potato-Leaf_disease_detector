@@ -11,11 +11,24 @@ document.getElementById('upload-button').addEventListener('click', function() {
             uploadedImage.src = event.target.result;
             predictionResult.textContent = "Analyzing...";
             
-            // Simulate an API call to your Hugging Face Space
-            setTimeout(() => {
-                // Replace this with actual API call and response handling
-                predictionResult.textContent = "Prediction result: Disease identified!";
-            }, 2000); // Simulated delay
+            // Prepare the form data
+            const formData = new FormData();
+            formData.append('file', file);
+
+            // Make the API call
+            fetch('https://huggingface.co/spaces/benamedd/potato_disease/api/predict/', {  // Replace with your actual API endpoint
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the prediction result
+                predictionResult.textContent = `Prediction result: ${data.prediction}`; // Adjust according to your API response format
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                predictionResult.textContent = "An error occurred while analyzing the image.";
+            });
         };
 
         reader.readAsDataURL(file);
