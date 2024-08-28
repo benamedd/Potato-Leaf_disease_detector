@@ -18,12 +18,24 @@ document.getElementById('upload-button').addEventListener('click', function() {
             // Make the API call
             fetch('https://huggingface.co/spaces/benamedd/potato_disease/api/predict/', {  // Replace with your actual API endpoint
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    'Accept': 'application/json',
+                },
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
-                // Display the prediction result
-                predictionResult.textContent = `Prediction result: ${data.prediction}`; // Adjust according to your API response format
+                console.log('API response:', data); // Log the full API response for debugging
+                if (data && data.prediction) {
+                    predictionResult.textContent = `Prediction result: ${data.prediction}`;
+                } else {
+                    predictionResult.textContent = "Unable to retrieve prediction.";
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
